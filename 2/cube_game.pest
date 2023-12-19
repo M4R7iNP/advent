@@ -1,0 +1,9 @@
+WHITESPACE = _{ " " | "\n" }
+game_id = { ASCII_DIGIT+ }
+box_count = { ASCII_DIGIT+ }
+box_color = { "red" | "blue" | "green" }
+box_stmt = { box_count ~ box_color }
+box_stmts = _{ box_stmt ~ ("," ~ box_stmt)* }
+round = { box_stmts }
+game = { "Game" ~ game_id ~ ":" ~ round ~ (";" ~ round)* }
+program = { game+ }
