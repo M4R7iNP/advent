@@ -12,7 +12,7 @@ int main() {
     char line[1024];
     MARTIN_NUMBER result = 0;
 
-    if (regcomp(&regex, "^\\([0-9]\\+\\)\\1$", 0) != 0) {
+    if (regcomp(&regex, "^\\([0-9]\\+\\)\\1\\+$", 0) != 0) {
         fprintf(stderr, "Could not compile regex\n");
         return 1;
     }
